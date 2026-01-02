@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>에듀브릿지 사회적협동조합 | EDUBRIDGE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="에듀브릿지 사회적협동조합은 코딩 교육을 통해 함께 배우고 함께 웃는 디지털 행복 교실을 만듭니다.">
+
+  <style>
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+                   "Noto Sans KR",Arial,sans-serif;
+      color:#222;
+      background:#fafafa;
+    }
+
+    /* ===== 상단 메뉴바 ===== */
+    header{
+      background:#fff;
+      border-bottom:1px solid #e5e5e5;
+    }
+
+    .header-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:#222;
+      font-weight:700;
+    }
+
+    .brand img{
+      height:36px;
+    }
+
+    nav a{
+      margin-left:18px;
+      text-decoration:none;
+      color:#444;
+      font-size:0.95rem;
+    }
+
+    nav a:hover{
+      color:#1bb05d;
+      font-weight:600;
+    }
+
+    /* ===== 상단 배너 ===== */
+    .top-banner img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* ===== 공통 ===== */
+    .container{
+      max-width:1000px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* 로고 + 안내 */
+    .intro{
+      margin:40px auto 20px;
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .intro img{
+      height:64px;
+    }
+
+    .intro-text h1{
+      margin:0 0 6px;
+      font-size:1.7rem;
+    }
+
+    .intro-text p{
+      margin:0;
+      color:#555;
+      line-height:1.6;
+    }
+
+    /* 메인 카드 */
+    .hero{
+      background:#fff;
+      margin:30px auto;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+
+    .hero p{
+      margin-top:10px;
+      color:#555;
+      line-height:1.7;
+    }
+
+    .cta{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 22px;
+      background:#1bb05d;
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+    }
+
+    footer{
+      margin:50px 0 20px;
+      text-align:center;
+      font-size:0.9rem;
+      color:#777;
+    }
+
+    /* 모바일 */
+    @media(max-width:900px){
+      nav{
+        display:none; /* 초보자용: 모바일에서는 메뉴 숨김 */
+      }
+      .intro{
+        flex-direction:column;
+        text-align:center;
+      }
+      .intro img{
+        height:56px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ① 상단 메뉴바 -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="에듀브릿지 로고">
+        EDUBRIDGE
+      </a>
+
+      <nav>
+        <a href="index.html">홈</a>
+        <a href="about.html">소개</a>
+        <a href="education.html">교육활동</a>
+        <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
+        <a href="schedule.html">일정·신청</a>
+        <a href="contact.html">문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ② 상단 배너 -->
+  <div class="top-banner">
+    <img src="assets/banner.png" alt="에듀브릿지 사회적협동조합 배너">
+  </div>
+
+  <!-- ③ 로고 + 슬로건 -->
+  <section class="container intro">
+    <img src="assets/logo.png" alt="에듀브릿지 EDUBRIDGE 로고">
+    <div class="intro-text">
+      <h1>에듀브릿지 사회적협동조합</h1>
+      <p>함께 배우고 함께 웃는 <strong>디지털 행복 교실</strong></p>
+    </div>
+  </section>
+
+  <!-- ④ 메인 안내 -->
+  <main class="container">
+    <section class="hero">
+      <p>
+        에듀브릿지는 코딩 교육을 통해<br>
+        사람과 지역, 배움과 미래를 연결하는<br>
+        <strong>비영리 교육 협동조합</strong>입니다.
+      </p>
+      <a href="#" class="cta">강의 안내 (준비중)</a>
+    </section>
+  </main>
+
+  <footer>
+    © 에듀브릿지 사회적협동조합 EDUBRIDGE
+  </footer>
+
+</body>
+</html>
