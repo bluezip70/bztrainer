@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>교육활동 | 에듀브릿지 사회적협동조합</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <style>
+    :root{
+      --max-w:1200px;
+      --header-h:72px;
+    }
+    body{
+      margin:0;
+      font-family:"Noto Sans KR",sans-serif;
+      background:#000;
+      color:#fff;
+    }
+
+    header{
+      position:fixed;
+      top:0;left:0;
+      width:100%;
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(6px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .header-inner{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:0 20px;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:#fff;
+      text-decoration:none;
+    }
+    .brand img{height:44px}
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:6px;
+    }
+    nav a:hover{background:rgba(255,255,255,0.08)}
+
+    .page{
+      padding-top:120px;
+      text-align:center;
+    }
+    h1{font-size:42px;margin-bottom:24px}
+    ul{
+      max-width:600px;
+      margin:0 auto;
+      text-align:left;
+      line-height:2;
+      color:rgba(255,255,255,0.85);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="EDUBRIDGE 로고">
+      <strong>EDUBRIDGE</strong>
+    </a>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="about.html">소개</a>
+      <a href="education.html">교육활동</a>
+      <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
+      <a href="https://forms.gle/ACdiVX8d4jz5SJFq7" target="_blank">일정·신청</a>
+      <a href="https://forms.gle/d6WgDCQVqcgcqhXh6" target="_blank">문의</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page">
+  <h1>교육활동</h1>
+  <ul>
+    <li>초·중·고 코딩 및 AI 교육</li>
+    <li>마이크로비트·아두이노 피지컬 컴퓨팅</li>
+    <li>생성형 AI 활용 교육</li>
+    <li>지역 맞춤형 디지털 역량 강화 교육</li>
+    <li>기관·단체 맞춤형 출강 교육</li>
+  </ul>
+</section>
+
+</body>
+</html>
