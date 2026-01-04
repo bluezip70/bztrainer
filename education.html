@@ -5,55 +5,171 @@
   <title>교육활동 | 에듀브릿지</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+    :root{
+      --header-h:72px;
+      --max-w:1200px;
     }
 
-    /* ===== 페이지 제목 ===== */
-    .page-title {
-      text-align: center;
-      padding: 40px 20px 20px;
-      font-size: 28px;
-      font-weight: bold;
+    /* ===== 기본 ===== */
+    body{
+      margin:0;
+      font-family:"Noto Sans KR","Segoe UI",sans-serif;
+      background:#000;
+      color:#fff;
+    }
+
+    a{text-decoration:none;}
+
+    /* ===== 상단 메뉴 ===== */
+    header{
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      height:var(--header-h);
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      z-index:1000;
+    }
+
+    .header-inner{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:0 20px;
+      height:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+    }
+
+    .brand img{height:44px}
+
+    nav a{
+      color:#fff;
+      padding:8px 10px;
+      border-radius:6px;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    /* ===== 본문 ===== */
+    main{
+      padding-top:140px;
+      padding-bottom:120px;
+      max-width:1100px;
+      margin:0 auto;
+      padding-left:20px;
+      padding-right:20px;
+      text-align:center;
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .desc{
+      font-size:18px;
+      line-height:1.8;
+      color:rgba(255,255,255,0.9);
     }
 
     /* ===== 교육활동 사진 Grid ===== */
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 항상 3칸 */
-      gap: 20px;
-      padding: 20px 40px 60px;
+    .education-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
     }
 
-    .education-grid img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .education-grid img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.45);
+      cursor:pointer;
+      transition:transform .2s ease;
+    }
+
+    .education-grid img:hover{
+      transform:translateY(-6px);
+    }
+
+    /* ===== 모달(라이트박스) ===== */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      z-index:2000;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .modal img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:12px;
+    }
+
+    .modal .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:32px;
+      color:#fff;
+      cursor:pointer;
+    }
+
+    .modal-content{
+      text-align:center;
+      max-width:900px;
+    }
+
+    .modal-content img{
+      max-width:100%;
+      max-height:70vh;
+      border-radius:12px;
+    }
+
+    #modalDesc{
+      margin-top:16px;
+      font-size:16px;
+      line-height:1.6;
+      color:rgba(255,255,255,0.9);
     }
 
     /* ===== 푸터 ===== */
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: #222;
-      color: #fff;
-      font-size: 14px;
+    footer{
+      background:#050505;
+      text-align:center;
+      font-size:13px;
+      color:rgba(255,255,255,0.6);
+      padding:24px 0 40px;
     }
 
-    /* ===== 반응형 (모바일) ===== */
-    @media (max-width: 768px) {
-      .education-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* ===== 반응형 ===== */
+    @media(max-width:768px){
+      h1{font-size:32px}
+      .desc{font-size:16px}
+      .education-grid{
+        grid-template-columns:repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 480px) {
-      .education-grid {
-        grid-template-columns: 1fr;
+    @media(max-width:480px){
+      .education-grid{
+        grid-template-columns:1fr;
       }
     }
   </style>
@@ -61,26 +177,90 @@
 
 <body>
 
-  <!-- 페이지 제목 -->
-  <div class="page-title">교육활동</div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="EDUBRIDGE 로고">
+      <strong>EDUBRIDGE</strong>
+    </a>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="about.html">소개</a>
+      <a href="education.html">교육활동</a>
+      <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
+      <a href="https://forms.gle/ACdiVX8d4jz5SJFq7" target="_blank">교육신청</a>
+      <a href="https://forms.gle/d6WgDCQVqcgcqhXh6" target="_blank">문의</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- 교육활동 사진 영역 -->
+<main>
+  <h1>교육활동</h1>
+  <p class="desc">
+    에듀브릿지는 연령과 수준에 맞춘 코딩 교육을 통해<br>
+    디지털 역량과 문제 해결 능력을 키웁니다.
+  </p>
+
+  <!-- 교육활동 사진 -->
   <section class="education-grid">
-    <img src="assets/education/edu1.png" alt="교육활동 사진 1">
-    <img src="assets/education/edu2.png" alt="교육활동 사진 2">
-    <img src="assets/education/edu3.png" alt="교육활동 사진 3">
-    <img src="assets/education/edu4.png" alt="교육활동 사진 4">
-    <img src="assets/education/edu5.png" alt="교육활동 사진 5">
-    <img src="assets/education/edu6.png" alt="교육활동 사진 6">
-    <img src="assets/education/edu7.png" alt="교육활동 사진 7">
-    <img src="assets/education/edu8.png" alt="교육활동 사진 8">
-    <img src="assets/education/edu9.png" alt="교육활동 사진 9">
+    <img src="assets/education/edu1.png" alt="교육활동 1"
+	    data-desc="교육활동 1">
+    <img src="assets/education/edu2.png" alt="교육활동 2"
+	    data-desc="교육활동 2">
+    <img src="assets/education/edu3.png" alt="교육활동 3"
+	    data-desc="교육활동 3">
+    <img src="assets/education/edu4.png" alt="교육활동 4"
+	    data-desc="교육활동 4">
+    <img src="assets/education/edu5.png" alt="교육활동 5"
+	    data-desc="교육활동 5">
+    <img src="assets/education/edu6.png" alt="교육활동 6"
+	    data-desc="교육활동 6">
+    <img src="assets/education/edu7.jpg" alt="교육활동 7"
+	    data-desc="교육활동 7">
+    <img src="assets/education/edu8.png" alt="교육활동 8"
+	    data-desc="교육활동 8">
+    <img src="assets/education/edu9.png" alt="교육활동 9"
+	    data-desc="교육활동 9">
   </section>
+</main>
 
-  <!-- 푸터 -->
-  <footer>
-    © 에듀브릿지 사회적협동조합 EDUBRIDGE
-  </footer>
+<footer>
+  © 에듀브릿지 사회적협동조합 EDUBRIDGE
+</footer>
+
+<!-- ===== 모달 영역 ===== -->
+<div class="modal" id="imgModal">
+  <span class="close" onclick="closeModal()">×</span>
+
+  <div class="modal-content">
+    <img id="modalImg">
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalDesc = document.getElementById("modalDesc");
+
+  document.querySelectorAll(".education-grid img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+      modalDesc.textContent = img.dataset.desc; 
+    });
+  });
+
+  function closeModal(){
+    modal.style.display = "none";
+  }
+
+  modal.addEventListener("click", e => {
+    if(e.target === modal){
+      closeModal();
+    }
+  });
+</script>
 
 </body>
 </html>
