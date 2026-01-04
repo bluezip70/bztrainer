@@ -23,7 +23,9 @@
     /* ===== 상단 메뉴 ===== */
     header{
       position:fixed;
-      top:0; left:0;
+      top:0; 
+      left:0;
+      z-index:3000;
       width:100%;
       height:var(--header-h);
       background:rgba(0,0,0,0.35);
@@ -114,6 +116,8 @@
       z-index:2000;
       justify-content:center;
       align-items:center;
+      pointer-events:none; 
+      opacity:0;
     }
 
     .modal img{
@@ -246,13 +250,17 @@
   document.querySelectorAll(".education-grid img").forEach(img => {
     img.addEventListener("click", () => {
       modal.style.display = "flex";
+      modal.style.opacity = "1";
+      modal.style.pointerEvents = "auto";   // ⭐ 활성화
       modalImg.src = img.src;
-      modalDesc.textContent = img.dataset.desc; 
+      modalDesc.textContent = img.dataset.desc;
     });
   });
 
   function closeModal(){
     modal.style.display = "none";
+    modal.style.opacity = "0";
+    modal.style.pointerEvents = "none";     // ⭐ 다시 차단
   }
 
   modal.addEventListener("click", e => {
