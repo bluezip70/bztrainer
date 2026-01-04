@@ -6,32 +6,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <style>
-    :root{
-      --max-w:1200px;
-      --header-h:72px;
-    }
     body{
       margin:0;
-      font-family:"Noto Sans KR",sans-serif;
-      background:#000;
+      font-family:"Noto Sans KR","Segoe UI",sans-serif;
       color:#fff;
+      background:
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.7)),
+        url('assets/about-bg.png') center/cover no-repeat;
+      min-height:100vh;
     }
 
     /* ===== 상단 메뉴 (홈과 동일) ===== */
     header{
       position:fixed;
-      top:0;left:0;
+      top:0; left:0;
       width:100%;
-      height:var(--header-h);
+      height:72px;
       display:flex;
       align-items:center;
       background:rgba(0,0,0,0.35);
       backdrop-filter:blur(6px);
       z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.04);
+      border-bottom:1px solid rgba(255,255,255,0.05);
     }
     .header-inner{
-      max-width:var(--max-w);
+      max-width:1200px;
       margin:0 auto;
       padding:0 20px;
       width:100%;
@@ -56,16 +55,25 @@
     nav a:hover{background:rgba(255,255,255,0.08)}
 
     /* ===== 본문 ===== */
-    .page{
+    .wrap{
       padding-top:120px;
       text-align:center;
     }
-    h1{font-size:42px;margin-bottom:24px}
-    p{
-      max-width:800px;
+    h1{
+      font-size:42px;
+      margin-bottom:36px;
+    }
+    .intro-text{
+      max-width:900px;
       margin:0 auto;
-      line-height:1.8;
-      color:rgba(255,255,255,0.85);
+      font-size:20px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.9);
+    }
+
+    @media(max-width:768px){
+      h1{font-size:32px}
+      .intro-text{font-size:17px}
     }
   </style>
 </head>
@@ -83,20 +91,21 @@
       <a href="about.html">소개</a>
       <a href="education.html">교육활동</a>
       <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
-      <a href="https://forms.gle/ACdiVX8d4jz5SJFq7" target="_blank">교육신청</a>
+      <a href="https://forms.gle/ACdiVX8d4jz5SJFq7" target="_blank">일정·신청</a>
       <a href="https://forms.gle/d6WgDCQVqcgcqhXh6" target="_blank">문의</a>
     </nav>
   </div>
 </header>
 
-<section class="page">
-  <h1>에듀브릿지 사회적협동조합 소개</h1>
-  <p>
-    에듀브릿지 사회적협동조합은<br>
-    코딩과 디지털 교육을 통해 사람과 지역을 연결하고,<br>
-    배움이 일상이 되는 지속 가능한 교육 생태계를 만들어갑니다.
+<div class="wrap">
+  <h1>에듀브릿지 사회적협동조합</h1>
+
+  <p class="intro-text">
+    에듀브릿지 사회적협동조합에 오신 것을 환영합니다.<br>
+    에듀브릿지는 지역사회와 함께 성장하는 지속 가능한 교육 플랫폼을 구축하고<br>
+    모든 청소년이 미래 사회에서 주체적인 삶을 살아갈 수 있도록 함께하겠습니다.
   </p>
-</section>
+</div>
 
 </body>
 </html>
