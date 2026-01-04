@@ -1,205 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>에듀브릿지 사회적협동조합 | EDUBRIDGE</title>
-  <meta name="description" content="에듀브릿지 사회적협동조합은 코딩 교육을 통해 함께 배우고 함께 웃는 디지털 행복 교실을 만듭니다.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduBridge 사회적협동조합</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    :root{
-      --max-w:1200px;
-      --accent:#7b61ff;
-      --green:#1bb05d;
-      --header-h:72px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Noto Sans KR", "Segoe UI", Roboto, -apple-system, Arial, sans-serif;
-      color:#fff;
-      background:#000;
-      -webkit-font-smoothing:antialiased;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
     }
 
-    /* ========== 상단 고정 메뉴 ========== */
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:var(--header-h);
-      display:flex;
-      align-items:center;
-      backdrop-filter: blur(6px);
-      background: rgba(0,0,0,0.35);
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.04);
-    }
-    .header-inner{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding:0 20px;
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      text-decoration:none;
-      color:inherit;
-    }
-    .brand img{height:44px; width:auto; display:block;}
-    .brand .title{
-      font-weight:700;
-      letter-spacing:0.4px;
-      color:#f7f7f7;
+    body {
+      color: #ffffff;
+      background-color: #000;
     }
 
-    nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    nav a{
-      color:rgba(255,255,255,0.9);
-      text-decoration:none;
-      font-size:0.95rem;
-      padding:8px 10px;
-      border-radius:6px;
-    }
-    nav a:hover{background:rgba(255,255,255,0.06)}
-    nav a.external::after{
-      content:"↗";
-      margin-left:6px;
-      font-size:0.8rem;
-      opacity:0.8;
+    /* ===== 상단 메뉴 ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
     }
 
-    /* ========== 히어로 섹션 ========== */
-    .hero{
-      min-height: calc(100vh - var(--header-h));
-      padding-top:var(--header-h);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero__bg{
-      position:absolute;
-      inset:0;
-      background-image: url('assets/hero.png');
-      background-size:cover;
-      background-position:center;
-      z-index:0;
-      transform:translateZ(0);
-    }
-    /* 어두운 오버레이로 글자 가독성 확보 */
-    .hero__overlay{
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.45) 10%, rgba(0,0,0,0.7) 70%);
-      z-index:1;
+    header .logo {
+      font-size: 20px;
+      font-weight: 700;
     }
 
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      max-width:1100px;
-      text-align:center;
-      padding:60px 20px;
+    header nav a {
+      margin-left: 24px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.9;
     }
 
-    /* 그라디언트 대형 타이틀 */
-    .hero h1{
-      margin:0;
-      font-size:clamp(36px, 9vw, 96px);
-      line-height:0.95;
-      font-weight:700;
-      letter-spacing:-1px;
-      background: linear-gradient(90deg,#9c7bff, #6ad0ff 60%, #c97bff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      text-shadow: 0 6px 32px rgba(0,0,0,0.45);
+    header nav a:hover {
+      opacity: 1;
     }
 
-    .hero .subtitle{
-      margin-top:18px;
-      font-size:clamp(14px, 2.2vw, 18px);
-      color:rgba(255,255,255,0.95);
-      max-width:760px;
-      margin-left:auto;
-      margin-right:auto;
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+                  url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
     }
 
-    .hero .btn{
-      display:inline-block;
-      margin-top:28px;
-      padding:12px 22px;
-      border-radius:30px;
-      background:rgba(255,255,255,0.12);
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-      transition: all .18s ease;
-      backdrop-filter: blur(6px);
-    }
-    .hero .btn:hover{
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.18);
+    /* 메인 타이틀 통일 */
+    .hero h1,
+    .hero h2 {
+      font-size: 52px;
+      font-weight: 700;
+      color: #bfa8ff;
+      line-height: 1.15;
     }
 
-    /* ========== 본문 어두운 블록 ========== */
-    .content{
-      background:#050505;
-      color:#fff;
-      padding:64px 20px 120px;
-      text-align:center;
-    }
-    .content .lead{
-      max-width:900px;
-      margin:0 auto 28px;
-      font-size:20px;
-      font-weight:700;
-    }
-    .content p.lead-desc{
-      max-width:900px;
-      margin:18px auto 32px;
-      color:rgba(255,255,255,0.85);
-      line-height:1.9;
-      font-size:16.5px;
+    .hero h2 {
+      margin-top: 6px;
     }
 
-    .contacts{
-      max-width:720px;
-      margin:28px auto 0;
-      text-align:left;
-      color:rgba(255,255,255,0.9);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .contact-item{display:flex;gap:12px;align-items:center}
-    .contact-item svg{width:20px;height:20px;opacity:0.9;flex-shrink:0}
-
-    footer{
-      margin-top:44px;
-      color:rgba(255,255,255,0.6);
-      font-size:13px;
-      text-align:center;
+    /* 설명 문구 (제목보다 살짝 작게) */
+    .hero p {
+      margin-top: 28px;
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.7;
+      opacity: 0.95;
     }
 
-    /* 모바일 대응 */
-    @media(max-width:900px){
-      nav{display:none} /* 필요하면 햄버거 메뉴로 개선 가능 */
-      .contacts{padding:0 14px}
-      .hero-inner{padding:40px 14px}
+    .hero .btn {
+      margin-top: 36px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ===== 소개 영역 ===== */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h3 {
+      font-size: 28px;
+      margin-bottom: 28px;
+    }
+
+    section p {
+      line-height: 1.8;
+      opacity: 0.9;
+      font-size: 20px; /* 소개 문단 글자 크기 확대 */
+    }
+
+    /* ===== 연락처 아이콘 ===== */
+    .contact-icons {
+      margin: 80px auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      max-width: 520px;
+    }
+
+    .contact-icons a {
+      display: flex;              /* 아이콘 바로 뒤에 텍스트 */
+      align-items: center;
+      gap: 10px;                  /* 아이콘-텍스트 간격 최소화 */
+      width: 100%;
+      justify-content: flex-start; /* 왼쪽 정렬 기준 유지 */
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .contact-icons i {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    /* ===== 모바일 ===== */
+    @media (max-width: 768px) {
+      .hero h1,
+      .hero h2 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -207,72 +174,57 @@
 
   <!-- 상단 메뉴 -->
   <header>
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="에듀브릿지 홈">
-        <img src="assets/logo.png" alt="EDUBRIDGE 로고">
-        <span class="title">EDUBRIDGE</span>
-      </a>
-
-      <nav aria-label="주 메뉴">
-        <a href="index.html">홈</a>
-        <a href="about.html">소개</a>
-        <a href="education.html">교육활동</a>
-        <a class="external" href="https://blog.naver.com/edubridgecoop" target="_blank" rel="noopener">블로그</a>
-        <a href="schedule.html">일정·신청</a>
-        <a href="contact.html">문의</a>
-      </nav>
-    </div>
+    <div class="logo">EduBridge</div>
+    <nav>
+      <a href="#">홈</a>
+      <a href="#about">소개</a>
+      <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
+      <a href="#contact">문의</a>
+    </nav>
   </header>
 
-  <!-- 히어로 -->
-  <section class="hero" role="banner">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
-
-    <div class="hero-inner">
-      <h1>EduBridge<br>사회적협동조합</h1>
-      <div class="subtitle">
-        에듀브릿지 사회적협동조합은 코딩 교육을 통해<br>
-        사람과 지역, 배움과 미래를 연결하는 교육 협동조합입니다.
-      </div>
-      <a class="btn" href="education.html">홈페이지 준비중</a>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>EduBridge</h1>
+    <h2>사회적협동조합</h2>
+    <p>
+      에듀브릿지 사회적협동조합은 코딩 교육을 통해<br />
+      사람과 지역, 배움과 미래를 연결합니다.
+    </p>
+    <a class="btn" href="#about">강의내용 (준비중)</a>
   </section>
 
-  <!-- 본문 (검정 바닥) -->
-  <section class="content">
-    <div class="lead">함께 배우고, 함께 웃는 디지털 행복 플랫폼</div>
-    <p class="lead-desc">
-      에듀브릿지 사회적협동조합은<br> 
-      지역과 사람을 연결하는 코딩 교육으로 일상 속 디지털 격차를 줄이고,<br>
+  <!-- 소개 -->
+  <section id="about">
+    <h3>함께 배우고, 함께 웃는 디지털 행복 플랫폼</h3>
+    <p>
+      에듀브릿지 사회적협동조합은 <br />
+      지역과 사람을 연결하는 코딩 교육으로 일상 속 디지털 격차를 줄이고, <br />
       배움이 곧 행복이 되는 지속 가능한 디지털 교육 생태계를 만들어갑니다.
     </p>
 
-    <div class="contacts" role="contentinfo">
-      <div class="contact-item">
-        <!-- 이메일 아이콘 -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7" /><path d="M3 8.5L12 13l9-4.5" /></svg>
-        <div>edubridgecoop@naver.com</div>
-      </div>
+    <!-- 연락처 -->
+    <div class="contact-icons" id="contact">
+      <a href="mailto:edubridgecoop@naver.com">
+        <i class="fa-solid fa-envelope"></i>
+        <span>edubridgecoop@naver.com</span>
+      </a>
 
-      <div class="contact-item">
-        <!-- 블로그 아이콘 -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8" /></svg>
-        <div><a href="https://blog.naver.com/edubridgecoop" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">blog.naver.com/edubridgecoop</a></div>
-      </div>
+      <a href="https://blog.naver.com/edubridgecoop" target="_blank">
+        <i class="fa-solid fa-blog"></i>
+        <span>blog.naver.com/edubridgecoop</span>
+      </a>
 
-      <div class="contact-item">
-        <!-- 장소 아이콘 -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div>용인시 사회적경제지원센터 창업보육실(동백)</div>
-      </div>
+      <a href="https://map.naver.com" target="_blank">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>용인시 사회적경제지원센터 창업보육실(동백)</span>
+      </a>
     </div>
-
-    <footer>
-      © 에듀브릿지 사회적협동조합 EDUBRIDGE
-    </footer>
   </section>
+
+  <footer>
+    © EduBridge Social Cooperative
+  </footer>
 
 </body>
 </html>
-
