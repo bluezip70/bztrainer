@@ -10,13 +10,16 @@
       --max-w:1200px;
       --header-h:72px;
     }
+
     body{
       margin:0;
-      font-family:"Noto Sans KR",sans-serif;
-      background:#000;
+      font-family:"Noto Sans KR","Segoe UI",sans-serif;
       color:#fff;
+      background:#000;
+      min-height:100vh;
     }
 
+    /* ===== 상단 메뉴 (공통) ===== */
     header{
       position:fixed;
       top:0;left:0;
@@ -27,7 +30,7 @@
       background:rgba(0,0,0,0.35);
       backdrop-filter:blur(6px);
       z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.04);
+      border-bottom:1px solid rgba(255,255,255,0.05);
     }
     .header-inner{
       max-width:var(--max-w);
@@ -54,17 +57,58 @@
     }
     nav a:hover{background:rgba(255,255,255,0.08)}
 
-    .page{
-      padding-top:120px;
+    /* ===== 교육활동 본문 ===== */
+    .wrap{
+      padding-top:140px;
+      padding-bottom:120px;
+      max-width:900px;
+      margin:0 auto;
       text-align:center;
     }
-    h1{font-size:42px;margin-bottom:24px}
-    ul{
-      max-width:600px;
-      margin:0 auto;
+    h1{
+      font-size:42px;
+      margin-bottom:32px;
+    }
+    .desc{
+      font-size:18px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.9);
+    }
+
+    .programs{
+      margin-top:48px;
+      display:flex;
+      flex-direction:column;
+      gap:28px;
       text-align:left;
-      line-height:2;
+    }
+    .program{
+      padding:24px;
+      background:rgba(255,255,255,0.05);
+      border-radius:12px;
+    }
+    .program h3{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+    .program p{
+      margin:0;
+      line-height:1.7;
       color:rgba(255,255,255,0.85);
+    }
+
+    /* ===== footer ===== */
+    footer{
+      text-align:center;
+      font-size:13px;
+      color:rgba(255,255,255,0.6);
+      padding:24px 0 40px;
+      background:#050505;
+    }
+
+    @media(max-width:768px){
+      h1{font-size:32px}
+      .desc{font-size:16px}
     }
   </style>
 </head>
@@ -88,16 +132,35 @@
   </div>
 </header>
 
-<section class="page">
+<div class="wrap">
   <h1>교육활동</h1>
-  <ul>
-    <li>초·중·고 코딩 및 AI 교육</li>
-    <li>마이크로비트·아두이노 피지컬 컴퓨팅</li>
-    <li>생성형 AI 활용 교육</li>
-    <li>지역 맞춤형 디지털 역량 강화 교육</li>
-    <li>기관·단체 맞춤형 출강 교육</li>
-  </ul>
-</section>
+
+  <p class="desc">
+    에듀브릿지는 연령과 수준에 맞춘 맞춤형 코딩 교육을 통해<br>
+    디지털 역량과 문제 해결 능력을 키우는 교육을 제공합니다.
+  </p>
+
+  <div class="programs">
+    <div class="program">
+      <h3>초·중등 코딩 교육</h3>
+      <p>블록 코딩과 피지컬 컴퓨팅을 활용해 컴퓨팅 사고력을 기릅니다.</p>
+    </div>
+
+    <div class="program">
+      <h3>청소년·청년 디지털 역량 교육</h3>
+      <p>AI·데이터·프로그래밍 기초를 통해 미래 역량을 준비합니다.</p>
+    </div>
+
+    <div class="program">
+      <h3>지역 연계 교육 프로그램</h3>
+      <p>지역사회와 함께하는 문제 해결형 프로젝트 수업을 운영합니다.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 에듀브릿지 사회적협동조합 EDUBRIDGE
+</footer>
 
 </body>
 </html>
