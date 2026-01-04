@@ -1,166 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>교육활동 | 에듀브릿지 사회적협동조합</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <title>교육활동 | 에듀브릿지</title>
 
   <style>
-    :root{
-      --max-w:1200px;
-      --header-h:72px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
     }
 
-    body{
-      margin:0;
-      font-family:"Noto Sans KR","Segoe UI",sans-serif;
-      color:#fff;
-      background:#000;
-      min-height:100vh;
+    /* ===== 페이지 제목 ===== */
+    .page-title {
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 28px;
+      font-weight: bold;
     }
 
-    /* ===== 상단 메뉴 (공통) ===== */
-    header{
-      position:fixed;
-      top:0;left:0;
-      width:100%;
-      height:var(--header-h);
-      display:flex;
-      align-items:center;
-      background:rgba(0,0,0,0.35);
-      backdrop-filter:blur(6px);
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.05);
-    }
-    .header-inner{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding:0 20px;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      color:#fff;
-      text-decoration:none;
-    }
-    .brand img{height:44px}
-    nav a{
-      color:#fff;
-      text-decoration:none;
-      padding:8px 10px;
-      border-radius:6px;
-    }
-    nav a:hover{background:rgba(255,255,255,0.08)}
-
-    /* ===== 교육활동 본문 ===== */
-    .wrap{
-      padding-top:140px;
-      padding-bottom:120px;
-      max-width:900px;
-      margin:0 auto;
-      text-align:center;
-    }
-    h1{
-      font-size:42px;
-      margin-bottom:32px;
-    }
-    .desc{
-      font-size:18px;
-      line-height:1.9;
-      color:rgba(255,255,255,0.9);
+    /* ===== 교육활동 사진 Grid ===== */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 항상 3칸 */
+      gap: 20px;
+      padding: 20px 40px 60px;
     }
 
-    .programs{
-      margin-top:48px;
-      display:flex;
-      flex-direction:column;
-      gap:28px;
-      text-align:left;
-    }
-    .program{
-      padding:24px;
-      background:rgba(255,255,255,0.05);
-      border-radius:12px;
-    }
-    .program h3{
-      margin:0 0 10px;
-      font-size:20px;
-    }
-    .program p{
-      margin:0;
-      line-height:1.7;
-      color:rgba(255,255,255,0.85);
+    .education-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* ===== footer ===== */
-    footer{
-      text-align:center;
-      font-size:13px;
-      color:rgba(255,255,255,0.6);
-      padding:24px 0 40px;
-      background:#050505;
+    /* ===== 푸터 ===== */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #222;
+      color: #fff;
+      font-size: 14px;
     }
 
-    @media(max-width:768px){
-      h1{font-size:32px}
-      .desc{font-size:16px}
+    /* ===== 반응형 (모바일) ===== */
+    @media (max-width: 768px) {
+      .education-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="EDUBRIDGE 로고">
-      <strong>EDUBRIDGE</strong>
-    </a>
-    <nav>
-      <a href="index.html">홈</a>
-      <a href="about.html">소개</a>
-      <a href="education.html">교육활동</a>
-      <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
-      <a href="https://forms.gle/ACdiVX8d4jz5SJFq7" target="_blank">일정·신청</a>
-      <a href="https://forms.gle/d6WgDCQVqcgcqhXh6" target="_blank">문의</a>
-    </nav>
-  </div>
-</header>
+  <!-- 페이지 제목 -->
+  <div class="page-title">교육활동</div>
 
-<div class="wrap">
-  <h1>교육활동</h1>
+  <!-- 교육활동 사진 영역 -->
+  <section class="education-grid">
+    <img src="assets/education/edu1.png" alt="교육활동 사진 1">
+    <img src="assets/education/edu2.png" alt="교육활동 사진 2">
+    <img src="assets/education/edu3.png" alt="교육활동 사진 3">
+    <img src="assets/education/edu4.png" alt="교육활동 사진 4">
+    <img src="assets/education/edu5.png" alt="교육활동 사진 5">
+    <img src="assets/education/edu6.png" alt="교육활동 사진 6">
+    <img src="assets/education/edu7.png" alt="교육활동 사진 7">
+    <img src="assets/education/edu8.png" alt="교육활동 사진 8">
+    <img src="assets/education/edu9.png" alt="교육활동 사진 9">
+  </section>
 
-  <p class="desc">
-    에듀브릿지는 연령과 수준에 맞춘 맞춤형 코딩 교육을 통해<br>
-    디지털 역량과 문제 해결 능력을 키우는 교육을 제공합니다.
-  </p>
-
-  <div class="programs">
-    <div class="program">
-      <h3>초·중등 코딩 교육</h3>
-      <p>블록 코딩과 피지컬 컴퓨팅을 활용해 컴퓨팅 사고력을 기릅니다.</p>
-    </div>
-
-    <div class="program">
-      <h3>청소년·청년 디지털 역량 교육</h3>
-      <p>AI·데이터·프로그래밍 기초를 통해 미래 역량을 준비합니다.</p>
-    </div>
-
-    <div class="program">
-      <h3>지역 연계 교육 프로그램</h3>
-      <p>지역사회와 함께하는 문제 해결형 프로젝트 수업을 운영합니다.</p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  © 에듀브릿지 사회적협동조합 EDUBRIDGE
-</footer>
+  <!-- 푸터 -->
+  <footer>
+    © 에듀브릿지 사회적협동조합 EDUBRIDGE
+  </footer>
 
 </body>
 </html>
