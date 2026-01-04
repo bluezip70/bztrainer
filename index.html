@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>에듀브릿지 사회적협동조합 | EDUBRIDGE</title>
-  <meta name="description" content="에듀브릿지 사회적협동조합은 코딩 교육을 통해 함께 배우고 함께 웃는 디지털 행복 교실을 만듭니다.">
+  <meta name="description" content="에듀브릿지 사회적협동조합은 코딩 교육을 통해 함께 배우고 함께 웃는 디지털 행복 플랫폼을 만듭니다.">
 
   <style>
     :root{
@@ -16,23 +16,21 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: "Noto Sans KR", "Segoe UI", Roboto, -apple-system, Arial, sans-serif;
+      font-family:"Noto Sans KR","Segoe UI",Roboto,-apple-system,Arial,sans-serif;
       color:#fff;
       background:#000;
-      -webkit-font-smoothing:antialiased;
     }
 
-    /* ========== 상단 고정 메뉴 ========== */
+    /* ===== 상단 ===== */
     header{
       position:fixed;
-      top:0;
-      left:0;
+      top:0;left:0;
       width:100%;
       height:var(--header-h);
       display:flex;
       align-items:center;
-      backdrop-filter: blur(6px);
-      background: rgba(0,0,0,0.35);
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(6px);
       z-index:1000;
       border-bottom:1px solid rgba(255,255,255,0.04);
     }
@@ -42,270 +40,181 @@
       padding:0 20px;
       width:100%;
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
     }
     .brand{
       display:flex;
       gap:12px;
       align-items:center;
+      color:#fff;
       text-decoration:none;
-      color:inherit;
     }
-    .brand img{height:44px; width:auto; display:block;}
-    .brand .title{
-      font-weight:700;
-      letter-spacing:0.4px;
-      color:#f7f7f7;
-    }
-
-    nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
+    .brand img{height:44px}
     nav a{
-      color:rgba(255,255,255,0.9);
+      color:#fff;
       text-decoration:none;
-      font-size:0.95rem;
       padding:8px 10px;
       border-radius:6px;
     }
-    nav a:hover{background:rgba(255,255,255,0.06)}
-    nav a.external::after{
-      content:"↗";
-      margin-left:6px;
-      font-size:0.8rem;
-      opacity:0.8;
-    }
+    nav a:hover{background:rgba(255,255,255,0.08)}
 
-    /* ========== 히어로 섹션 ========== */
+    /* ===== 히어로 ===== */
     .hero{
-      min-height: calc(100vh - var(--header-h));
+      min-height:calc(100vh - var(--header-h));
       padding-top:var(--header-h);
       display:flex;
       align-items:center;
       justify-content:center;
       position:relative;
-      overflow:hidden;
     }
     .hero__bg{
       position:absolute;
       inset:0;
-      background-image: url('assets/hero.png');
-      background-size:cover;
-      background-position:center;
-      z-index:0;
-      transform:translateZ(0);
+      background:url('assets/hero.png') center/cover no-repeat;
     }
-    /* 어두운 오버레이로 글자 가독성 확보 */
     .hero__overlay{
       position:absolute;
       inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.45) 10%, rgba(0,0,0,0.7) 70%);
-      z-index:1;
+      background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.7));
     }
-
     .hero-inner{
       position:relative;
-      z-index:2;
-      max-width:1100px;
       text-align:center;
       padding:60px 20px;
     }
-
-    /* 그라디언트 대형 타이틀 */
     .hero h1{
-      margin:0;
-      font-size:clamp(36px, 9vw, 96px);
-      line-height:0.95;
-      font-weight:700;
-      letter-spacing:-1px;
-      background: linear-gradient(90deg,#9c7bff, #6ad0ff 60%, #c97bff);
+      font-size:clamp(36px,9vw,96px);
+      background:linear-gradient(90deg,#9c7bff,#6ad0ff,#c97bff);
       -webkit-background-clip:text;
-      background-clip:text;
       color:transparent;
-      text-shadow: 0 6px 32px rgba(0,0,0,0.45);
+      margin:0;
     }
-
     .hero .subtitle{
-      margin-top:18px;
-      font-size:clamp(14px, 2.2vw, 18px);
-      color:rgba(255,255,255,0.95);
-      max-width:760px;
-      margin-left:auto;
-      margin-right:auto;
+      font-size:42px;
+      color:#bfa8ff;
+      margin-top:12px;
+      line-height:1.3;
     }
 
-    .hero .btn{
-      display:inline-block;
-      margin-top:28px;
-      padding:12px 22px;
-      border-radius:30px;
-      background:rgba(255,255,255,0.12);
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-      transition: all .18s ease;
-      backdrop-filter: blur(6px);
-    }
-    .hero .btn:hover{
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.18);
-    }
-
-    /* ===== 연락처 아이콘 ===== */
-.contact-icons {
-  margin: 80px auto 0;
-  padding: 0 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-  max-width: 520px;
-}
-
-.contact-icons a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: flex-start;
-  color: #fff;
-  text-decoration: none;
-  font-size: 17px;
-  padding: 6px 0;
-}
-
-.contact-icons i {
-  width: 36px;
-  height: 36px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  opacity: 0.9;
-  line-height: 1;
-}
-
-    /* ========== 본문 어두운 블록 ========== */
+    /* ===== 본문 ===== */
     .content{
       background:#050505;
-      color:#fff;
       padding:64px 20px 120px;
       text-align:center;
     }
     .content .lead{
-      max-width:900px;
-      margin:0 auto 28px;
-      font-size:20px;
-      font-weight:700;
+      font-size:42px;
+      font-weight:500;
     }
-    .content p.lead-desc{
+    .lead-desc{
       max-width:900px;
-      margin:18px auto 32px;
-      color:rgba(255,255,255,0.85);
+      margin:24px auto;
       line-height:1.9;
-      font-size:16.5px;
+      color:rgba(255,255,255,0.85);
     }
 
-    .contacts{
-      max-width:720px;
-      margin:28px auto 0;
-      text-align:left;
-      color:rgba(255,255,255,0.9);
+    /* ===== 연락처 아이콘 (수정된 부분) ===== */
+    .contact-icons{
+      margin:80px auto 0;
+      max-width:520px;
       display:flex;
       flex-direction:column;
-      gap:14px;
+      gap:22px;
+      text-align:left;
     }
-    .contact-item{display:flex;gap:12px;align-items:center}
-    .contact-item svg{width:20px;height:20px;opacity:0.9;flex-shrink:0}
+    .contact-icons a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      text-decoration:none;
+      font-size:17px;
+    }
+    .contact-icons img{
+      width:36px;
+      height:36px;
+      padding:6px;
+      border:1px solid #fff;
+      border-radius:50%;
+      object-fit:contain;
+      opacity:.9;
+    }
 
     footer{
       margin-top:44px;
-      color:rgba(255,255,255,0.6);
       font-size:13px;
+      color:rgba(255,255,255,0.6);
       text-align:center;
     }
 
-    /* 모바일 대응 */
-    @media(max-width:900px){
-      nav{display:none} /* 필요하면 햄버거 메뉴로 개선 가능 */
-      .contacts{padding:0 14px}
-      .hero-inner{padding:40px 14px}
+    @media(max-width:768px){
+      .hero .subtitle,
+      .content .lead{font-size:30px}
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 상단 메뉴 -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="에듀브릿지 홈">
-        <img src="assets/logo.png" alt="EDUBRIDGE 로고">
-        <span class="title">EDUBRIDGE</span>
-      </a>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="EDUBRIDGE 로고">
+      <strong>EDUBRIDGE</strong>
+    </a>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="about.html">소개</a>
+      <a href="education.html">교육활동</a>
+      <a href="https://blog.naver.com/edubridgecoop" target="_blank">블로그</a>
+      <a href="schedule.html">일정·신청</a>
+      <a href="contact.html">문의</a>
+    </nav>
+  </div>
+</header>
 
-      <nav aria-label="주 메뉴">
-        <a href="index.html">홈</a>
-        <a href="about.html">소개</a>
-        <a href="education.html">교육활동</a>
-        <a class="external" href="https://blog.naver.com/edubridgecoop" target="_blank" rel="noopener">블로그</a>
-        <a href="schedule.html">일정·신청</a>
-        <a href="contact.html">문의</a>
-      </nav>
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero-inner">
+    <h1>EduBridge<br>사회적협동조합</h1>
+    <div class="subtitle">
+      코딩 교육을 통해 사람과 지역,<br>
+      배움과 미래를 연결합니다
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- 히어로 -->
-  <section class="hero" role="banner">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
+<section class="content">
+  <div class="lead">함께 배우고, 함께 웃는 디지털 행복 플랫폼</div>
+  <p class="lead-desc">
+    지역과 사람을 연결하는 코딩 교육으로<br>
+    배움이 곧 행복이 되는 지속 가능한 교육 생태계를 만듭니다.
+  </p>
 
-    <div class="hero-inner">
-      <h1>EduBridge<p>사회적협동조합</h1>
-      <div class="subtitle">
-        에듀브릿지 사회적협동조합은 코딩 교육을 통해<br>사람과 지역, 배움과 미래를 연결하는 교육 협동조합입니다.
-      </div>
-      <a class="btn" href="education.html">홈페이지 준비중</a>
-    </div>
-  </section>
+  <!-- 연락처 -->
+  <div class="contact-icons">
+    <a href="mailto:edubridgecoop@naver.com">
+      <img src="assets/email.png" alt="이메일">
+      <span>edubridgecoop@naver.com</span>
+    </a>
 
-  <!-- 본문 (검정 바닥) -->
-  <section class="content">
-    <div class="lead">함께 배우고, 함께 웃는 디지털 행복 플랫폼</div>
-    <p class="lead-desc">
-      에듀브릿지 사회적협동조합은<br> 
-      지역과 사람을 연결하는 코딩 교육으로 일상 속 디지털 격차를 줄이고,<br>
-      배움이 곧 행복이 되는 지속 가능한 디지털 교육 생태계를 만들어갑니다.
-    </p>
+    <a href="https://blog.naver.com/edubridgecoop" target="_blank">
+      <img src="assets/blog.png" alt="블로그">
+      <span>blog.naver.com/edubridgecoop</span>
+    </a>
 
-    <!-- 연락처 -->
-    <div class="contact-icons" id="contact">
-      <a href="mailto:edubridgecoop@naver.com">
-        <i class="fa-solid fa-envelope"></i>
-        <span>edubridgecoop@naver.com</span>
-      </a>
+    <a href="https://map.naver.com" target="_blank">
+      <img src="assets/location.png" alt="위치">
+      <span>용인시 사회적경제지원센터 창업보육실(동백)</span>
+    </a>
+  </div>
 
-      <a href="https://blog.naver.com/edubridgecoop" target="_blank">
-        <i class="fa-solid fa-blog"></i>
-        <span>blog.naver.com/edubridgecoop</span>
-      </a>
-
-      <a href="https://map.naver.com" target="_blank">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>용인시 사회적경제지원센터 창업보육실(동백)</span>
-      </a>
-    </div>
-
-
-    <footer>
-      © 에듀브릿지 사회적협동조합 EDUBRIDGE
-    </footer>
-  </section>
+  <footer>
+    © 에듀브릿지 사회적협동조합 EDUBRIDGE
+  </footer>
+</section>
 
 </body>
 </html>
