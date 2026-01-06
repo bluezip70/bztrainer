@@ -10,7 +10,6 @@
       --max-w:1200px;
     }
 
-    /* ===== 기본 ===== */
     body{
       margin:0;
       font-family:"Noto Sans KR","Segoe UI",sans-serif;
@@ -20,12 +19,10 @@
 
     a{text-decoration:none;}
 
-    /* ===== 상단 메뉴 ===== */
     header{
       position:fixed;
-      top:0; 
+      top:0;
       left:0;
-      z-index:3000;
       width:100%;
       height:var(--header-h);
       background:rgba(0,0,0,0.35);
@@ -63,21 +60,16 @@
       background:rgba(255,255,255,0.08);
     }
 
-    /* ===== 본문 ===== */
     main{
       padding-top:140px;
       padding-bottom:120px;
       max-width:1100px;
       margin:0 auto;
-      padding-left:20px;
-      padding-right:20px;
+      padding:0 20px;
       text-align:center;
     }
 
-    h1{
-      font-size:42px;
-      margin-bottom:20px;
-    }
+    h1{font-size:42px;margin-bottom:20px}
 
     .desc{
       font-size:18px;
@@ -85,7 +77,6 @@
       color:rgba(255,255,255,0.9);
     }
 
-    /* ===== 교육활동 사진 Grid ===== */
     .education-grid{
       margin-top:60px;
       display:grid;
@@ -98,16 +89,14 @@
       height:220px;
       object-fit:cover;
       border-radius:14px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.45);
       cursor:pointer;
-      transition:transform .2s ease;
+      transition:.2s;
     }
 
     .education-grid img:hover{
       transform:translateY(-6px);
     }
 
-    /* ===== 모달(라이트박스) ===== */
     .modal{
       display:none;
       position:fixed;
@@ -116,23 +105,8 @@
       z-index:2000;
       justify-content:center;
       align-items:center;
-      pointer-events:none; 
       opacity:0;
-    }
-
-    .modal img{
-      max-width:90%;
-      max-height:90%;
-      border-radius:12px;
-    }
-
-    .modal .close{
-      position:absolute;
-      top:20px;
-      right:30px;
-      font-size:32px;
-      color:#fff;
-      cursor:pointer;
+      pointer-events:none;
     }
 
     .modal-content{
@@ -150,10 +124,28 @@
       margin-top:16px;
       font-size:16px;
       line-height:1.6;
-      color:rgba(255,255,255,0.9);
     }
 
-    /* ===== 푸터 ===== */
+    .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:32px;
+      cursor:pointer;
+    }
+
+    .nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:48px;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .prev{left:20px}
+    .next{right:20px}
+
     footer{
       background:#050505;
       text-align:center;
@@ -162,19 +154,12 @@
       padding:24px 0 40px;
     }
 
-    /* ===== 반응형 ===== */
     @media(max-width:768px){
-      h1{font-size:32px}
-      .desc{font-size:16px}
-      .education-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
+      .education-grid{grid-template-columns:repeat(2,1fr)}
     }
 
     @media(max-width:480px){
-      .education-grid{
-        grid-template-columns:1fr;
-      }
+      .education-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -184,7 +169,7 @@
 <header>
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="EDUBRIDGE 로고">
+      <img src="assets/logo.png">
       <strong>EDUBRIDGE</strong>
     </a>
     <nav>
@@ -200,10 +185,7 @@
 
 <main>
   <h1>교육활동</h1>
-  <p class="desc">
-    에듀브릿지는 연령과 수준에 맞춘 코딩 교육을 통해<br>
-    디지털 역량과 문제 해결 능력을 키웁니다.
-  </p>
+  <p class="desc">에듀브릿지는 연령과 수준에 맞춘 코딩 교육을 통해<br>디지털 역량과 문제 해결 능력을 키웁니다.</p>
 
   <!-- 교육활동 사진 -->
   <section class="education-grid">
@@ -228,13 +210,12 @@
   </section>
 </main>
 
-<footer>
-  © 에듀브릿지 사회적협동조합 EDUBRIDGE
-</footer>
+<footer>© 에듀브릿지 사회적협동조합 EDUBRIDGE</footer>
 
-<!-- ===== 모달 영역 ===== -->
 <div class="modal" id="imgModal">
   <span class="close" onclick="closeModal()">×</span>
+  <span class="nav prev" onclick="prevSlide()">‹</span>
+  <span class="nav next" onclick="nextSlide()">›</span>
 
   <div class="modal-content">
     <img id="modalImg">
@@ -246,31 +227,65 @@
   const modal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
   const modalDesc = document.getElementById("modalDesc");
+  const images = document.querySelectorAll(".education-grid img");
 
-  document.querySelectorAll(".education-grid img").forEach(img => {
+  let currentIndex = 0;
+  let startX = 0;
+
+  images.forEach((img, i) => {
     img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modal.style.opacity = "1";
-      modal.style.pointerEvents = "auto";   // ⭐ 활성화
-      modalImg.src = img.src;
-      modalDesc.textContent = img.dataset.desc;
+      currentIndex = i;
+      openModal();
     });
   });
 
-  function closeModal(){
-    modal.style.display = "none";
-    modal.style.opacity = "0";
-    modal.style.pointerEvents = "none";     // ⭐ 다시 차단
+  function openModal(){
+    modal.style.display="flex";
+    modal.style.opacity="1";
+    modal.style.pointerEvents="auto";
+    updateSlide();
   }
 
-  modal.addEventListener("click", e => {
-    if(e.target === modal){
-      closeModal();
-    }
+  function closeModal(){
+    modal.style.display="none";
+    modal.style.opacity="0";
+    modal.style.pointerEvents="none";
+  }
+
+  function updateSlide(){
+    modalImg.src = images[currentIndex].src;
+    modalDesc.textContent = images[currentIndex].dataset.desc;
+  }
+
+  function nextSlide(){
+    currentIndex = (currentIndex+1)%images.length;
+    updateSlide();
+  }
+
+  function prevSlide(){
+    currentIndex = (currentIndex-1+images.length)%images.length;
+    updateSlide();
+  }
+
+  // 키보드
+  document.addEventListener("keydown", e=>{
+    if(modal.style.display!=="flex") return;
+    if(e.key==="ArrowRight") nextSlide();
+    if(e.key==="ArrowLeft") prevSlide();
+    if(e.key==="Escape") closeModal();
+  });
+
+  // 모바일 스와이프
+  modalImg.addEventListener("touchstart", e=>{
+    startX = e.touches[0].clientX;
+  });
+
+  modalImg.addEventListener("touchend", e=>{
+    const endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) nextSlide();
+    if(endX - startX > 50) prevSlide();
   });
 </script>
 
 </body>
 </html>
-
-
